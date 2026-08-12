@@ -600,7 +600,9 @@ select.form-control {
     background-repeat: no-repeat;
     background-position: right 1rem center;
 }
-
+select.form-control option {
+    color: #000000;
+}
 textarea.form-control {
     resize: vertical;
     min-height: 120px;
