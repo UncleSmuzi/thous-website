@@ -9,6 +9,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="favicon.png">
+    <meta property="og:title" content="Green Hous Think Tank | THOUS — 3rd October 2026">
+    <meta property="og:description" content="Ideas. Strategies. Impact. An open workshop for builders, creators, thinkers & doers.">
+    <meta property="og:type" content="event">
+    <meta property="og:url" content="https://thous.co.za/think-tank.html">
+    <meta property="og:image" content="https://thous.co.za/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Green Hous Think Tank | THOUS — 3rd October 2026">
+    <meta name="twitter:description" content="Ideas. Strategies. Impact. An open workshop for builders, creators, thinkers & doers.">
+    <meta name="twitter:image" content="https://thous.co.za/logo.png">
+    <link rel="canonical" href="https://thous.co.za/think-tank.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "THOUS — The House of Uncle Smuzi",
+      "url": "https://thous.co.za",
+      "logo": "https://thous.co.za/logo.png",
+      "sameAs": [
+        "https://instagram.com/_the_hous_",
+        "https://www.facebook.com/share/1VVtt6rWho/",
+        "https://www.threads.com/@_the_hous_"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Soweto",
+        "addressRegion": "Johannesburg",
+        "addressCountry": "ZA"
+      }
+    }
+    </script>
+
 </head>
 <body>
 <nav class="navbar">
@@ -27,6 +61,7 @@
                         <a href="brunch.html">The HOUS Brunch</a>
                         <a href="think-tank.html">Green Hous Think Tank</a>
                         <a href="long-table.html">The Long Table Talk</a>
+                        <a href="open-insight.html">Open Insight Conversation</a>
                     </div>
                 </li>
                 <li><a href="library.html">The Library</a></li>
@@ -66,7 +101,7 @@
                     </div>
                     <div class="event-meta-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="#B8894F" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        10:00 AM – 16:00 PM (Doors open 09:30)
+                        10:00 AM – 4:00 PM (Doors open 09:30)
                     </div>
                 </div>
 
@@ -93,6 +128,62 @@
             <h2>Builders. Creators. Strategists.<br>Explorers. <em>Innovators.</em></h2>
             <div class="divider"></div>
             <p>Whatever your archetype, there's a seat at the table for you. Come as you are. Leave with more.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header fade-in">
+            <span class="section-label">Workshop Booking</span>
+            <h2>Book Your Seat at the <em>Think Tank</em></h2>
+            <div class="divider"></div>
+            <p>Secure your place at the Green Hous Think Tank on 3rd October 2026. Fill in your details below and we'll confirm your spot.</p>
+        </div>
+        <div style="max-width:700px; margin:0 auto;">
+            <form action="https://formspree.io/f/xgawzynl" method="POST" class="fade-in">
+                <input type="hidden" name="subject" value="Think Tank Workshop Booking">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile *</label>
+                    <input type="tel" name="phone" class="form-control" placeholder="+27 ..." required>
+                </div>
+                <div class="form-group">
+                    <label>Company / Project Name</label>
+                    <input type="text" name="company" class="form-control" placeholder="What are you building?">
+                </div>
+                <div class="form-group">
+                    <label>Which archetype describes you? *</label>
+                    <select name="archetype" class="form-control" required>
+                        <option value="">Select your archetype</option>
+                        <option value="builder">The Builder</option>
+                        <option value="architect">The Architect</option>
+                        <option value="creator">The Creator</option>
+                        <option value="strategist">The Strategist</option>
+                        <option value="explorer">The Explorer</option>
+                        <option value="innovator">The Innovator</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Group Size</label>
+                    <select name="group_size" class="form-control">
+                        <option value="individual">Just me</option>
+                        <option value="2-5">2 – 5 people</option>
+                        <option value="6-10">6 – 10 people</option>
+                        <option value="10+">10+ people</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>What are you hoping to get out of the workshop? *</label>
+                    <textarea name="goals" class="form-control" placeholder="Tell us what you're working on and what you'd like clarity on..." required maxlength="50"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Request Booking</button>
+            </form>
         </div>
     </section>
 

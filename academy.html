@@ -9,6 +9,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="favicon.png">
+    <meta property="og:title" content="Academy | THOUS — Operational Intelligence Workshops">
+    <meta property="og:description" content="The Five Movements framework. Workshops and learning experiences built for builders who think.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thous.co.za/academy.html">
+    <meta property="og:image" content="https://thous.co.za/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Academy | THOUS — Operational Intelligence Workshops">
+    <meta name="twitter:description" content="The Five Movements framework. Workshops and learning experiences built for builders who think.">
+    <meta name="twitter:image" content="https://thous.co.za/logo.png">
+    <link rel="canonical" href="https://thous.co.za/academy.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "THOUS — The House of Uncle Smuzi",
+      "url": "https://thous.co.za",
+      "logo": "https://thous.co.za/logo.png",
+      "sameAs": [
+        "https://instagram.com/_the_hous_",
+        "https://www.facebook.com/share/1VVtt6rWho/",
+        "https://www.threads.com/@_the_hous_"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Soweto",
+        "addressRegion": "Johannesburg",
+        "addressCountry": "ZA"
+      }
+    }
+    </script>
+
 </head>
 <body>
 
@@ -28,6 +62,7 @@
                         <a href="brunch.html">The HOUS Brunch</a>
                         <a href="think-tank.html">Green Hous Think Tank</a>
                         <a href="long-table.html">The Long Table Talk</a>
+                        <a href="open-insight.html">Open Insight Conversation</a>
                     </div>
                 </li>
                 <li><a href="library.html">The Library</a></li>
@@ -145,6 +180,66 @@
                     <a href="contact.html" class="btn btn-dark" style="margin-top: 1rem; padding: 0.7rem 1.5rem; font-size: 0.75rem;">Enquire</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header fade-in">
+            <span class="section-label">Book Your Place</span>
+            <h2>Reserve Your <em>Workshop</em></h2>
+            <div class="divider"></div>
+            <p>Ready to dive in? Select your preferred programme and we'll confirm your booking.</p>
+        </div>
+        <div style="max-width:700px; margin:0 auto;">
+            <form action="https://formspree.io/f/mgawkdva" method="POST" class="fade-in">
+                <input type="hidden" name="subject" value="Academy Workshop Booking">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile *</label>
+                    <input type="tel" name="phone" class="form-control" placeholder="+27 ..." required>
+                </div>
+                <div class="form-group">
+                    <label>Company / Organisation</label>
+                    <input type="text" name="company" class="form-control" placeholder="Your company or team name">
+                </div>
+                <div class="form-group">
+                    <label>Which programme are you booking? *</label>
+                    <select name="programme" class="form-control" required>
+                        <option value="">Select a programme</option>
+                        <option value="half-day">Half-Day Workshop — R6,000 – R12,000</option>
+                        <option value="full-day">Full-Day Intensive — R15,000 – R25,000</option>
+                        <option value="bootcamp">2-Day Bootcamp — R30,000 – R45,000</option>
+                        <option value="in-house">In-House Proposal — Custom</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred date / timeframe *</label>
+                    <input type="text" name="preferred_date" class="form-control" placeholder="e.g. October 2026, Q4 2026..." required>
+                </div>
+                <div class="form-group">
+                    <label>Estimated group size</label>
+                    <select name="group_size" class="form-control">
+                        <option value="">Select group size</option>
+                        <option value="1">Just me</option>
+                        <option value="2-5">2 – 5 people</option>
+                        <option value="6-15">6 – 15 people</option>
+                        <option value="16-30">16 – 30 people</option>
+                        <option value="30+">30+ people</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>What are you hoping to achieve? *</label>
+                    <textarea name="goals" class="form-control" placeholder="Tell us about your team, your challenges, and what success looks like..." required maxlength="50"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Request Booking</button>
+            </form>
         </div>
     </section>
 

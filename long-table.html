@@ -9,6 +9,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="favicon.png">
+    <meta property="og:title" content="The Long Table Talk | THOUS — Invitation Only">
+    <meta property="og:description" content="Some conversations are too important to be short. A curated dinner experience for the inner circle.">
+    <meta property="og:type" content="event">
+    <meta property="og:url" content="https://thous.co.za/long-table.html">
+    <meta property="og:image" content="https://thous.co.za/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Long Table Talk | THOUS — Invitation Only">
+    <meta name="twitter:description" content="Some conversations are too important to be short. A curated dinner experience for the inner circle.">
+    <meta name="twitter:image" content="https://thous.co.za/logo.png">
+    <link rel="canonical" href="https://thous.co.za/long-table.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "THOUS — The House of Uncle Smuzi",
+      "url": "https://thous.co.za",
+      "logo": "https://thous.co.za/logo.png",
+      "sameAs": [
+        "https://instagram.com/_the_hous_",
+        "https://www.facebook.com/share/1VVtt6rWho/",
+        "https://www.threads.com/@_the_hous_"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Soweto",
+        "addressRegion": "Johannesburg",
+        "addressCountry": "ZA"
+      }
+    }
+    </script>
+
 </head>
 <body>
 <nav class="navbar">
@@ -27,6 +61,7 @@
                         <a href="brunch.html">The HOUS Brunch</a>
                         <a href="think-tank.html">Green Hous Think Tank</a>
                         <a href="long-table.html">The Long Table Talk</a>
+                        <a href="open-insight.html">Open Insight Conversation</a>
                     </div>
                 </li>
                 <li><a href="library.html">The Library</a></li>
@@ -83,8 +118,55 @@
                     <p style="font-size:0.9rem; color:var(--text-light);"><strong>Membership:</strong> The Long Table is invitation-only, but new members are welcomed at every gathering. Express your interest and we'll be in touch when the next table is set.</p>
                 </div>
 
-                <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                    <a href="contact.html" class="btn btn-primary">Join the Waitlist</a>
+                <div style="margin-top:2rem; padding:2rem; background:var(--ivory-dark); border-radius:4px; border:1px solid rgba(184,137,79,0.2);">
+                    <h3 style="margin-bottom:1rem;">Request a Seat</h3>
+                    <form action="https://formspree.io/f/xgawzynl" method="POST">
+                        <input type="hidden" name="subject" value="Long Table Talk — Seat Request">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" name="name" class="form-control" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile *</label>
+                            <input type="tel" name="phone" class="form-control" placeholder="+27 ..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Company / Project Name</label>
+                            <input type="text" name="company" class="form-control" placeholder="What are you building?">
+                        </div>
+                        <div class="form-group">
+                            <label>Which archetype describes you? *</label>
+                            <select name="archetype" class="form-control" required>
+                                <option value="">Select your archetype</option>
+                                <option value="builder">The Builder</option>
+                                <option value="architect">The Architect</option>
+                                <option value="creator">The Creator</option>
+                                <option value="strategist">The Strategist</option>
+                                <option value="explorer">The Explorer</option>
+                                <option value="innovator">The Innovator</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Have you attended a THOUS event before? *</label>
+                            <select name="prior_attendance" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="yes-brunch">Yes — The HOUS Brunch</option>
+                                <option value="yes-think-tank">Yes — Green Hous Think Tank</option>
+                                <option value="yes-open-insight">Yes — Open Insight Conversation</option>
+                                <option value="yes-multiple">Yes — Multiple events</option>
+                                <option value="no">No — First time</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Why do you want to join the Long Table? *</label>
+                            <textarea name="motivation" class="form-control" placeholder="Tell us what draws you to this experience and what you'd bring to the table..." required maxlength="50"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request a Seat</button>
+                    </form>
                 </div>
             </div>
         </div>

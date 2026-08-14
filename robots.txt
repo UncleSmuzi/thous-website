@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /*.pdf$
+
+Sitemap: https://thous.co.za/sitemap.xml
+
+# THOUS — The House of Uncle Smuzi
+# Brand & Strategy Consulting
+# Soweto, Johannesburg, South Africa
