@@ -191,7 +191,7 @@
             <p>Ready to dive in? Select your preferred programme and we'll confirm your booking.</p>
         </div>
         <div style="max-width:700px; margin:0 auto;">
-            <form action="https://formspree.io/f/mgawkdva" method="POST" class="fade-in">
+            <form action="https://formspree.io/f/mgawkdva" method="POST" class="fade-in"><div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" value=""></div>
                 <input type="hidden" name="subject" value="Academy Workshop Booking">
                 <div class="form-group">
                     <label>Full Name *</label>
@@ -310,5 +310,24 @@
     </button>
 
     <script src="js/main.js"></script>
+<script>
+/* THOUS Form Guard — honeypot + rate limiting */
+(function(){
+  var COOLDOWN=60000,KEY='thous_form_ts';
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      var hp=f.querySelector('input[name="website"]');
+      if(hp&&hp.value!==''){e.preventDefault();return false;}
+      var last=localStorage.getItem(KEY),now=Date.now();
+      if(last&&now-parseInt(last)<COOLDOWN){
+        e.preventDefault();
+        alert('Please wait '+Math.ceil((COOLDOWN-(now-parseInt(last)))/1000)+'s before submitting again.');
+        return false;
+      }
+      localStorage.setItem(KEY,now.toString());
+    });
+  });
+})();
+</script>
 </body>
 </html>
