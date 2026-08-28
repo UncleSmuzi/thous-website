@@ -43,6 +43,191 @@
     }
     </script>
 
+<style>
+/* ===== THOUS Ticket Reference Modal ===== */
+.thous-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 25, 47, 0.92);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    padding: 1rem;
+}
+.thous-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.thous-modal {
+    background: #0a192f;
+    border: 1px solid rgba(184, 137, 79, 0.25);
+    border-radius: 8px;
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(184,137,79,0.1);
+}
+.thous-modal-overlay.active .thous-modal {
+    transform: translateY(0) scale(1);
+}
+.thous-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(250,247,240,0.4);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+.thous-modal-close:hover {
+    color: var(--gold, #b8894f);
+    background: rgba(184,137,79,0.1);
+}
+.thous-modal-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold, #b8894f);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+.thous-modal h3 {
+    font-size: 1.5rem;
+    color: #faf7f0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.thous-modal-sub {
+    font-size: 0.85rem;
+    color: rgba(250,247,240,0.5);
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+}
+.thous-ref-code {
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold, #b8894f);
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 1.25rem;
+    background: rgba(184,137,79,0.06);
+    border: 1px dashed rgba(184,137,79,0.3);
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    user-select: all;
+    word-break: keep-all;
+}
+.thous-ref-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+.thous-ref-timer {
+    color: rgba(250,247,240,0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.thous-ref-timer.urgent {
+    color: #e74c3c;
+    font-weight: 600;
+}
+.thous-progress-track {
+    height: 4px;
+    background: rgba(250,247,240,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+.thous-progress-fill {
+    height: 100%;
+    background: var(--gold, #b8894f);
+    border-radius: 2px;
+    transition: width 1s linear, background 0.3s ease;
+    width: 100%;
+}
+.thous-progress-fill.urgent {
+    background: #e74c3c;
+}
+.thous-modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+.thous-modal-actions .btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 0.7rem 1rem;
+}
+.thous-verify-box {
+    border-top: 1px solid rgba(250,247,240,0.08);
+    padding-top: 1.25rem;
+}
+.thous-verify-box label {
+    font-size: 0.8rem;
+    color: rgba(250,247,240,0.6);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.thous-verify-input {
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.thous-verify-feedback {
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 4px;
+    display: none;
+}
+.thous-verify-feedback.success {
+    display: block;
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+.thous-verify-feedback.error {
+    display: block;
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+.thous-modal-footer {
+    font-size: 0.7rem;
+    color: rgba(250,247,240,0.3);
+    text-align: center;
+    margin-top: 1.25rem;
+    line-height: 1.5;
+}
+@media (max-width: 520px) {
+    .thous-modal { padding: 2rem 1.25rem; }
+    .thous-ref-code { font-size: 1.8rem; padding: 1rem; }
+    .thous-modal h3 { font-size: 1.25rem; }
+}
+</style>
 </head>
 <body>
 <nav class="navbar">
@@ -135,7 +320,7 @@
             <p>Complete the form below. You will receive a SpeedeeQR payment code via email to confirm your booking.</p>
         </div>
         <div style="max-width: 600px; margin: 0 auto;">
-            <form action="https://formspree.io/f/mqpzrwag" method="POST" class="fade-in">
+            <form action="https://formspree.io/f/mqpzrwag" method="POST" class="fade-in" id="brunchTicketForm">
                 <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
                     <input type="text" name="website" tabindex="-1" autocomplete="off" value="">
                 </div>
@@ -214,7 +399,7 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Reserve My Seat &amp; Get Payment QR</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="brunchSubmitBtn">Reserve My Seat &amp; Get Payment QR</button>
 
                 <p style="font-size: 0.75rem; color: rgba(250,247,240,0.4); text-align: center; margin-top: 1rem;">
                     Your booking is only confirmed once payment is received via SpeedeeQR. You will receive the QR code and payment instructions via email within a few minutes.
@@ -314,6 +499,65 @@
     </footer>
     <button class="scroll-top" aria-label="Scroll to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>    <script src="js/main.js"></script>
 <script>
+/* ===== HOUS Brunch Form — AJAX submit + Ticket Reference ===== */
+(function(){
+  var form = document.getElementById('brunchTicketForm');
+  var btn = document.getElementById('brunchSubmitBtn');
+  var originalBtnText = btn ? btn.innerHTML : '';
+
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Honeypot check
+    var hp = form.querySelector('input[name="website"]');
+    if (hp && hp.value !== '') return false;
+
+    // Rate limit check
+    var COOLDOWN = 60000;
+    var KEY = 'thous_form_ts';
+    var last = localStorage.getItem(KEY);
+    var now = Date.now();
+    if (last && now - parseInt(last) < COOLDOWN) {
+      alert('Please wait ' + Math.ceil((COOLDOWN - (now - parseInt(last))) / 1000) + 's before submitting again.');
+      return false;
+    }
+
+    // Show loading state
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span style="display:inline-block;width:16px;height:16px;border:2px solid rgba(250,247,240,0.3);border-top-color:#faf7f0;border-radius:50%;animation:thous-spin 0.8s linear infinite;vertical-align:middle;margin-right:8px;"></span>Processing...';
+    }
+
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        localStorage.setItem(KEY, now.toString());
+        // Show ticket reference modal
+        if (window.thousTicketModal) window.thousTicketModal.open();
+        form.reset();
+      } else {
+        alert('Something went wrong. Please try again or contact hello@thous.co.za');
+      }
+    }).catch(function() {
+      alert('Network error. Please check your connection and try again.');
+    }).finally(function() {
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+      }
+    });
+  });
+})();
+</script>
+<style>@keyframes thous-spin { to { transform: rotate(360deg); } }</style>
+<script>
 /* THOUS Form Guard — honeypot + rate limiting */
 (function(){
   var COOLDOWN=60000,KEY='thous_form_ts';
@@ -330,6 +574,253 @@
       localStorage.setItem(KEY,now.toString());
     });
   });
+})();
+</script>
+
+<!-- ===== THOUS Ticket Reference Modal ===== -->
+<div class="thous-modal-overlay" id="ticketModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="thous-modal">
+        <button class="thous-modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+        <span class="thous-modal-label">Purchase Reference</span>
+        <h3 id="modalTitle">Your Ticket Reference</h3>
+        <p class="thous-modal-sub">Use this code to verify your booking. It expires in 60 seconds.</p>
+
+        <div class="thous-ref-code" id="refCodeDisplay" aria-live="polite">THB-------</div>
+
+        <div class="thous-ref-meta">
+            <span class="thous-ref-timer" id="refTimer"><span id="timerIcon">⏱</span> <span id="timerText">60s remaining</span></span>
+            <span style="color:rgba(250,247,240,0.3);font-size:0.75rem;">Session-locked</span>
+        </div>
+
+        <div class="thous-progress-track">
+            <div class="thous-progress-fill" id="refProgress"></div>
+        </div>
+
+        <div class="thous-modal-actions">
+            <button class="btn btn-gold-outline" id="copyRefBtn" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Code
+            </button>
+            <button class="btn btn-dark" id="resendFormBtn" type="button" style="display:none;">
+                Resubmit Form
+            </button>
+        </div>
+
+        <div class="thous-verify-box">
+            <label for="verifyInput">Verify your reference code</label>
+            <input type="text" id="verifyInput" class="form-control thous-verify-input" placeholder="THB-XXXXXX" maxlength="10">
+            <button class="btn btn-primary" id="verifyBtn" type="button" style="width:100%;margin-top:0.75rem;">Verify Code</button>
+            <div class="thous-verify-feedback" id="verifyFeedback"></div>
+        </div>
+
+        <p class="thous-modal-footer">
+            This code is tied to your browser session. If you close this window, you can reopen it within 60 seconds to see the same code. After expiry, a new code will be generated.
+        </p>
+    </div>
+</div>
+<script>
+/* ===== THOUS Ticket Reference System ===== */
+(function(){
+  var PREFIX = 'THB-';
+  var TTL = 60000; // 60 seconds
+  var STORAGE_KEY = 'thous_ticket_ref';
+  var EXPIRY_KEY = 'thous_ticket_expiry';
+  var localCodes = new Set(); // dedup within this browser session
+
+  function generateCode() {
+    var buf = new Uint32Array(1);
+    var code;
+    var attempts = 0;
+    do {
+      crypto.getRandomValues(buf);
+      code = PREFIX + String(buf[0] % 1000000).padStart(6, '0');
+      attempts++;
+    } while (localCodes.has(code) && attempts < 100);
+    localCodes.add(code);
+    // prune old codes periodically
+    if (localCodes.size > 50) {
+      var iter = localCodes.values();
+      for (var i = 0; i < 20; i++) localCodes.delete(iter.next().value);
+    }
+    return code;
+  }
+
+  function getStoredRef() {
+    try {
+      var code = sessionStorage.getItem(STORAGE_KEY);
+      var expiry = parseInt(sessionStorage.getItem(EXPIRY_KEY) || '0');
+      if (code && expiry && Date.now() < expiry) {
+        return { code: code, expiry: expiry };
+      }
+    } catch(e) {}
+    return null;
+  }
+
+  function storeRef(code, expiry) {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, code);
+      sessionStorage.setItem(EXPIRY_KEY, String(expiry));
+    } catch(e) {}
+  }
+
+  function clearRef() {
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem(EXPIRY_KEY);
+    } catch(e) {}
+  }
+
+  function createRef() {
+    var existing = getStoredRef();
+    if (existing) return existing;
+    var code = generateCode();
+    var expiry = Date.now() + TTL;
+    storeRef(code, expiry);
+    return { code: code, expiry: expiry };
+  }
+
+  // Modal elements
+  var modal = document.getElementById('ticketModal');
+  var refDisplay = document.getElementById('refCodeDisplay');
+  var timerText = document.getElementById('timerText');
+  var timerIcon = document.getElementById('timerIcon');
+  var timerWrap = document.getElementById('refTimer');
+  var progressFill = document.getElementById('refProgress');
+  var copyBtn = document.getElementById('copyRefBtn');
+  var verifyBtn = document.getElementById('verifyBtn');
+  var verifyInput = document.getElementById('verifyInput');
+  var verifyFeedback = document.getElementById('verifyFeedback');
+  var closeBtn = document.getElementById('modalClose');
+  var resendBtn = document.getElementById('resendFormBtn');
+
+  var countdownInterval = null;
+  var currentRef = null;
+
+  function openModal() {
+    currentRef = createRef();
+    refDisplay.textContent = currentRef.code;
+    verifyInput.value = '';
+    verifyFeedback.className = 'thous-verify-feedback';
+    verifyFeedback.textContent = '';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    verifyInput.focus();
+    startCountdown();
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+    }
+  }
+
+  function startCountdown() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    function tick() {
+      var now = Date.now();
+      var remaining = Math.max(0, currentRef.expiry - now);
+      var pct = remaining / TTL;
+      progressFill.style.width = (pct * 100) + '%';
+      timerText.textContent = Math.ceil(remaining / 1000) + 's remaining';
+
+      if (remaining <= 10000) {
+        progressFill.classList.add('urgent');
+        timerWrap.classList.add('urgent');
+      } else {
+        progressFill.classList.remove('urgent');
+        timerWrap.classList.remove('urgent');
+      }
+
+      if (remaining <= 0) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+        refDisplay.textContent = 'EXPIRED';
+        refDisplay.style.color = '#e74c3c';
+        refDisplay.style.borderStyle = 'solid';
+        timerText.textContent = 'Expired — resubmit to generate new code';
+        timerIcon.textContent = '⚠';
+        copyBtn.style.display = 'none';
+        resendBtn.style.display = 'inline-flex';
+        clearRef();
+      }
+    }
+    tick();
+    countdownInterval = setInterval(tick, 1000);
+  }
+
+  // Copy to clipboard
+  copyBtn.addEventListener('click', function() {
+    if (!currentRef || !currentRef.code) return;
+    navigator.clipboard.writeText(currentRef.code).then(function() {
+      var original = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg>Copied!';
+      setTimeout(function() { copyBtn.innerHTML = original; }, 2000);
+    }).catch(function() {
+      // Fallback
+      var ta = document.createElement('textarea');
+      ta.value = currentRef.code;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+  });
+
+  // Verify
+  verifyBtn.addEventListener('click', function() {
+    var input = verifyInput.value.trim().toUpperCase();
+    var stored = getStoredRef();
+    if (!stored) {
+      verifyFeedback.className = 'thous-verify-feedback error';
+      verifyFeedback.textContent = 'This code has expired. Please resubmit the form to generate a new one.';
+      return;
+    }
+    if (input === stored.code) {
+      verifyFeedback.className = 'thous-verify-feedback success';
+      verifyFeedback.textContent = '✓ Code verified successfully. Your booking reference is valid.';
+    } else {
+      verifyFeedback.className = 'thous-verify-feedback error';
+      verifyFeedback.textContent = '✗ Code does not match. Please check and try again.';
+    }
+  });
+
+  verifyInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') verifyBtn.click();
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+
+  // Resubmit button
+  resendBtn.addEventListener('click', function() {
+    closeModal();
+    // Reset display styles
+    refDisplay.style.color = '';
+    refDisplay.style.borderStyle = '';
+    copyBtn.style.display = 'inline-flex';
+    resendBtn.style.display = 'none';
+    timerIcon.textContent = '⏱';
+    // Let user resubmit form
+    document.getElementById('brunchTicketForm').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // On page load: check if there's an active ref and restore modal state if needed
+  var existing = getStoredRef();
+  if (existing) {
+    currentRef = existing;
+    // Don't auto-open, but if user opens modal, show existing code
+  }
+
+  // Expose globally so the form submit handler can call it
+  window.thousTicketModal = { open: openModal, close: closeModal };
 })();
 </script>
 </body>
